@@ -54,6 +54,7 @@
 
 use hyper::body::HttpBody;
 use hyper::{Body, Client, Method, Request, Response};
+use serde::Serialize;
 use serde::Deserialize;
 use serde_json::json;
 
@@ -190,7 +191,7 @@ struct IpApiMessage {
 ///     query: Some("1.1.1.1".to_string()),
 /// };
 /// ```
-#[derive(Clone, Debug, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct IpData {
     /// Continent name
